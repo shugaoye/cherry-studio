@@ -6,7 +6,7 @@ on:
       tag:
         description: 'Release tag (e.g. v1.0.0)'
         required: true
-        default: 'v0.9.18'
+        default: 'v1.0.0'
   push:
     tags:
       - v*.*.*
@@ -41,6 +41,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: macos-latest dependencies fix
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install python-setuptools
 
       - name: Install corepack
         run: corepack enable && corepack prepare yarn@4.6.0 --activate

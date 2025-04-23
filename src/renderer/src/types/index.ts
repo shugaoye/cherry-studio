@@ -246,6 +246,7 @@ export type AppInfo = {
   filesPath: string
   logsPath: string
   arch: string
+  isPortable: boolean
 }
 
 export interface Shortcut {
@@ -500,4 +501,12 @@ export interface QuickPhrase {
   createdAt: number
   updatedAt: number
   order?: number
+}
+
+export interface Citation {
+  number: number
+  url: string
+  hostname: string
+  title?: string
+  content?: string
 }
